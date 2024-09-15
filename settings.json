@@ -1,0 +1,5 @@
+{
+  "DeviceAddressesCommand": "DeviceAddresses",
+  "IPaddressesCommand": "IPaddresses",
+  "MACaddressesCommand": "MACaddresses"
+}
