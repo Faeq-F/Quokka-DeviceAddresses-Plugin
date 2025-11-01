@@ -1,15 +1,18 @@
 ﻿using Quokka;
 using Quokka.ListItems;
+using Quokka.PluginArch;
 using System.Windows.Media.Imaging;
 
 namespace Plugin_DeviceAddresses {
   class IPaddressItem : ListItem {
 
     public IPaddressItem(string address) {
-      this.Name = address;
-      this.Description = "Your machine's IP address";
-      this.Icon = new BitmapImage(new Uri(
-          Environment.CurrentDirectory + "\\PlugBoard\\Plugin_DeviceAddresses\\Plugin\\ip.png"));
+      Name = address;
+      Description = "Your machine's IP address";
+      UiDispatcher.BeginInvoke(() => {
+        Icon = new BitmapImage(new Uri(
+            Environment.CurrentDirectory + "\\PlugBoard\\Plugin_DeviceAddresses\\Plugin\\ip.png"));
+      });
     }
 
     public override void Execute() {
@@ -21,10 +24,12 @@ namespace Plugin_DeviceAddresses {
   class MACaddressItem : ListItem {
 
     public MACaddressItem(string address) {
-      this.Name = address;
-      this.Description = "Your machine's MAC address";
-      this.Icon = new BitmapImage(new Uri(
-          Environment.CurrentDirectory + "\\PlugBoard\\Plugin_DeviceAddresses\\Plugin\\mac.png"));
+      Name = address;
+      Description = "Your machine's MAC address";
+      UiDispatcher.BeginInvoke(() => {
+        Icon = new BitmapImage(new Uri(
+            Environment.CurrentDirectory + "\\PlugBoard\\Plugin_DeviceAddresses\\Plugin\\mac.png"));
+      });
     }
 
     public override void Execute() {
