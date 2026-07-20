@@ -1,10 +1,10 @@
-﻿using Quokka;
+using Quokka;
 using Quokka.ListItems;
 using Quokka.PluginArch;
 
 namespace PluginDeviceAddresses
 {
-  class IPaddressItem : ListItem
+  sealed class IPaddressItem : ListItem
   {
 
     public IPaddressItem(string address)
@@ -23,7 +23,7 @@ namespace PluginDeviceAddresses
     }
   }
 
-  class MACaddressItem : ListItem
+  sealed class MACaddressItem : ListItem
   {
 
     public MACaddressItem(string address)

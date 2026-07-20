@@ -14,7 +14,7 @@
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 
     <Product>PluginDeviceAddresses</Product>
-    <BaseOutputPath>G:\Quokka\Quokka\PlugBoard\PluginDeviceAddresses</BaseOutputPath>
+    <BaseOutputPath>..\BuildOutput\Quokka\PlugBoard\PluginDeviceAddresses</BaseOutputPath>
     <Configurations>Plugin</Configurations>
 
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>

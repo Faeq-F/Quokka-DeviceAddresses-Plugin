@@ -1,9 +1,10 @@
-﻿namespace PluginDeviceAddresses
+namespace PluginDeviceAddresses
 {
 
   /// <summary>
   /// All plugin specific settings
   /// </summary>
+#pragma warning disable CA1724 // Type name conflicts with namespace name
   public class Settings
   {
 

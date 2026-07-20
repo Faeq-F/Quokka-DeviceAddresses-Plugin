@@ -13,9 +13,7 @@ namespace PluginDeviceAddresses
   /// </summary>
   public partial class DeviceAddresses : Plugin
   {
-
-    private static Settings pluginSettings = new();
-    internal static Settings PluginSettings { get => pluginSettings; set => pluginSettings = value; }
+    internal static Settings PluginSettings { get; set; } = new();
 
     /// <summary>
     /// Creates the plugin, loading the plugins settings
@@ -50,13 +48,10 @@ namespace PluginDeviceAddresses
     static List<string> GetMACaddresses()
     {
       List<string> items = new();
-      foreach (string address in NetworkInterface
+      items.AddRange(NetworkInterface
            .GetAllNetworkInterfaces()
            .Where(nic => nic.OperationalStatus == OperationalStatus.Up && nic.NetworkInterfaceType != NetworkInterfaceType.Loopback)
-           .Select(nic => nic.GetPhysicalAddress().ToString()))
-      {
-        items.Add(address.ToString());
-      }
+           .Select(nic => nic.GetPhysicalAddress().ToString()));
       return items;
     }
 
