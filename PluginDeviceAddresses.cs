@@ -13,6 +13,12 @@ namespace PluginDeviceAddresses
   /// </summary>
   public partial class DeviceAddresses : Plugin
   {
+    /// <summary>
+    /// Gets the icon for the device addresses plugin.
+    /// </summary>
+    public override System.Windows.Media.ImageSource? PluginIcon =>
+      IconCache.GetOrAdd(Path.Combine(Environment.CurrentDirectory, "PlugBoard", "PluginDeviceAddresses", "Plugin", "ip.png"));
+
     internal static Settings PluginSettings { get; set; } = new();
 
     /// <summary>
@@ -27,7 +33,7 @@ namespace PluginDeviceAddresses
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    public override string PluginName { get; set; } = "DeviceAddresses";
+    public override string PluginName { get; set; } = "Device Addresses";
 
     /// <summary>
     /// <inheritdoc/>
@@ -40,12 +46,12 @@ namespace PluginDeviceAddresses
     /// <inheritdoc/>
     /// </summary>
     /// <returns>The commands in settings</returns>
-    public override Collection<String> SpecialCommands()
+    public override Collection<string> SpecialCommands()
     {
-      return new Collection<String>() { PluginSettings.DeviceAddressesCommand, PluginSettings.IPaddressesCommand, PluginSettings.MACaddressesCommand };
+      return new Collection<string>() { PluginSettings.DeviceAddressesCommand, PluginSettings.IPaddressesCommand, PluginSettings.MACaddressesCommand };
     }
 
-    static List<string> GetMACaddresses()
+    private static List<string> GetMACaddresses()
     {
       List<string> items = new();
       items.AddRange(NetworkInterface
@@ -55,7 +61,7 @@ namespace PluginDeviceAddresses
       return items;
     }
 
-    static List<string> GetIPaddresses()
+    private static List<string> GetIPaddresses()
     {
       string strHostName = Dns.GetHostName();
       IPHostEntry ipEntry = Dns.GetHostEntry(strHostName);

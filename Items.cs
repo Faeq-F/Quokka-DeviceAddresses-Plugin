@@ -1,10 +1,10 @@
-using Quokka;
 using Quokka.ListItems;
 using Quokka.PluginArch;
+using System.Windows;
 
 namespace PluginDeviceAddresses
 {
-  sealed class IPaddressItem : ListItem
+  internal sealed class IPaddressItem : ListItem
   {
 
     public IPaddressItem(string address)
@@ -18,12 +18,12 @@ namespace PluginDeviceAddresses
 
     public override void Execute()
     {
-      System.Windows.Clipboard.SetText(Name);
-      App.Current.MainWindow.Close();
+      Clipboard.SetText(Name);
+      Application.Current.MainWindow.Close();
     }
   }
 
-  sealed class MACaddressItem : ListItem
+  internal sealed class MACaddressItem : ListItem
   {
 
     public MACaddressItem(string address)
@@ -37,8 +37,8 @@ namespace PluginDeviceAddresses
 
     public override void Execute()
     {
-      System.Windows.Clipboard.SetText(Name);
-      App.Current.MainWindow.Close();
+      Clipboard.SetText(Name);
+      Application.Current.MainWindow.Close();
     }
   }
 }
